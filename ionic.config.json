@@ -1,0 +1,7 @@
+{
+  "name": "rede-srt-rs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
