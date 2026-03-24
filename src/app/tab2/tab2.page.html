@@ -1,82 +1,109 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/srts"></ion-back-button>
+    </ion-buttons>
     <ion-title>Novo SRT</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1>Cadastro de SRT</h1>
-  <p>Preencha os dados básicos da unidade.</p>
+<ion-content [fullscreen]="true">
+  <div class="create-container">
+    <div class="progress-wrap">
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+    </div>
 
-  <form class="form-layout">
-    <label>
-      Nome da unidade
-      <input type="text" placeholder="Ex: SRT Esperança" />
-    </label>
+    <section class="intro">
+      <h1>Informações Básicas</h1>
+      <p>Preencha os dados da unidade para o cadastro no sistema estadual.</p>
+    </section>
 
-    <label>
-      Cidade
-      <input type="text" placeholder="Ex: Porto Alegre" />
-    </label>
+    <section class="form-section">
+      <h2>Identificação</h2>
 
-    <label>
-      Telefone
-      <input type="text" placeholder="(51) 0000-0000" />
-    </label>
+      <div class="field-group">
+        <label for="nome">Nome da Unidade</label>
+        <input id="nome" type="text" placeholder="Ex: SRT Esperança" />
+      </div>
 
-    <label>
-      Endereço
-      <input type="text" placeholder="Rua, número, bairro" />
-    </label>
+      <div class="field-group">
+        <label for="cidade">Cidade</label>
+        <input id="cidade" type="text" placeholder="Selecione a cidade" />
+      </div>
 
-    <label>
-      Gestão
-      <input type="text" placeholder="Órgão responsável" />
-    </label>
+      <div class="field-group">
+        <label for="telefone">Telefone</label>
+        <input id="telefone" type="text" placeholder="(51) 0000-0000" />
+      </div>
 
-    <label>
-      Esfera
-      <select>
-        <option>Pública</option>
-        <option>Privada</option>
-      </select>
-    </label>
+      <div class="field-group">
+        <label for="endereco">Endereço Completo</label>
+        <input id="endereco" type="text" placeholder="Rua, número, bairro" />
+      </div>
+    </section>
 
-    <label>
-      Tipo
-      <select>
-        <option>Tipo 1</option>
-        <option>Tipo 2</option>
-      </select>
-    </label>
+    <section class="form-section">
+      <h2>Gestão e Operação</h2>
 
-    <label>
-      Gênero
-      <select>
-        <option>Misto</option>
-        <option>Masculino</option>
-        <option>Feminino</option>
-      </select>
-    </label>
+      <div class="field-group">
+        <label for="gestao">Gestão</label>
+        <input id="gestao" type="text" placeholder="Órgão responsável" />
+      </div>
 
-    <label>
-      Capacidade total
-      <input type="number" placeholder="0" />
-    </label>
+      <div class="field-group">
+        <label for="esfera">Esfera</label>
+        <select id="esfera">
+          <option>Pública</option>
+          <option>Privada</option>
+        </select>
+      </div>
 
-    <label>
-      Vagas disponíveis
-      <input type="number" placeholder="0" />
-    </label>
+      <div class="double-grid">
+        <div class="field-group">
+          <label for="tipo">Tipo</label>
+          <select id="tipo">
+            <option>Tipo 1</option>
+            <option>Tipo 2</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="genero">Gênero</label>
+          <select id="genero">
+            <option>Misto</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section compact">
+      <h2>Vagas e Capacidade</h2>
+
+      <div class="double-grid">
+        <div class="field-group">
+          <label for="capacidade">Capacidade Total</label>
+          <input id="capacidade" type="number" placeholder="0" />
+        </div>
+
+        <div class="field-group">
+          <label for="vagas">Vagas Livres</label>
+          <input id="vagas" type="number" placeholder="0" />
+        </div>
+      </div>
+    </section>
 
     <button type="button" class="primary-btn">
       Salvar SRT
     </button>
-  </form>
+  </div>
 </ion-content>
 
 <footer class="bottom-nav">
-  <a routerLink="/srts">SRTs</a>
-  <a routerLink="/novo">Cadastrar</a>
-  <a routerLink="/sobre">Sobre</a>
+  <a routerLink="/srts">Início</a>
+  <a routerLink="/novo">Novo SRT</a>
+  <a routerLink="/sobre">Perfil</a>
 </footer>

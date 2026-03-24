@@ -5,7 +5,9 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonContent
+  IonContent,
+  IonButtons,
+  IonBackButton
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -13,6 +15,15 @@ import {
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, RouterLink],
+  imports: [
+    CommonModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonButtons,
+    IonBackButton,
+    RouterLink
+  ],
 })
 export class Tab2Page {}

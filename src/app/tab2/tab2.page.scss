@@ -1,40 +1,127 @@
+:host {
+  --bg-page: #f4f6f8;
+  --card-bg: #ffffff;
+  --primary: #0b4d88;
+  --primary-dark: #083761;
+  --text-main: #1b2a34;
+  --text-soft: #5f6d78;
+  --border-soft: #e3e8ed;
+  --input-bg: #edf1f4;
+  --soft-blue: #eaf2fb;
+}
+
 ion-content {
-  --padding-bottom: 90px;
+  --background: var(--bg-page);
+  --padding-bottom: 110px;
 }
 
-.form-layout {
+.create-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px 110px;
+}
+
+.progress-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-bottom: 28px;
 }
 
-.form-layout label {
+.progress-step {
+  height: 4px;
+  flex: 1;
+  background: #dbe2e8;
+  border-radius: 999px;
+}
+
+.progress-step.active {
+  background: var(--primary);
+}
+
+.intro {
+  margin-bottom: 28px;
+}
+
+.intro h1 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #111;
+  font-weight: 700;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 28px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+.form-section.compact {
+  padding-bottom: 18px;
+}
+
+.form-section h2 {
+  margin: 0 0 18px;
+  color: var(--primary-dark);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.field-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-weight: 600;
+  margin-bottom: 18px;
 }
 
-.form-layout input,
-.form-layout select {
-  padding: 12px;
-  border: 1px solid #d9d9d9;
-  border-radius: 10px;
-  font-size: 16px;
+.field-group label {
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.96rem;
+}
+
+.field-group input,
+.field-group select {
+  width: 100%;
+  min-height: 56px;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  background: var(--input-bg);
+  padding: 0 16px;
+  font-size: 1rem;
+  color: var(--text-main);
+  box-sizing: border-box;
+}
+
+.double-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
 
 .primary-btn {
   display: block;
   width: 100%;
-  padding: 14px 16px;
-  margin-top: 8px;
+  padding: 18px 16px;
+  margin-top: 6px;
   border: none;
-  border-radius: 10px;
-  background: #005c92;
+  border-radius: 18px;
+  background: var(--primary);
   color: #fff;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(11, 77, 136, 0.22);
 }
 
 .bottom-nav {
@@ -51,7 +138,17 @@ ion-content {
 }
 
 .bottom-nav a {
-  color: #005c92;
+  color: #6c7a86;
   text-decoration: none;
   font-weight: 600;
+}
+
+.bottom-nav a:nth-child(2) {
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .double-grid {
+    grid-template-columns: 1fr;
+  }
 }
