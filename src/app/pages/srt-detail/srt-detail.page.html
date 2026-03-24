@@ -1,30 +1,117 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/srts"></ion-back-button>
+    </ion-buttons>
     <ion-title>Detalhes do SRT</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true">
   <ng-container *ngIf="srt; else naoEncontrado">
-    <h1>{{ srt.nome }}</h1>
+    <div class="detail-container">
+      <section class="hero-card">
+        <div class="hero-top">
+          <span class="hero-badge">{{ tipoLabel }}</span>
+          <button type="button" class="hero-edit-icon">✎</button>
+        </div>
 
-    <p><strong>Cidade:</strong> {{ srt.cidade }}</p>
-    <p><strong>Telefone:</strong> {{ srt.telefone }}</p>
-    <p><strong>Endereço:</strong> {{ srt.endereco }}</p>
-    <p><strong>Gestão:</strong> {{ srt.gestao }}</p>
-    <p><strong>Esfera:</strong> {{ srt.esfera }}</p>
-    <p><strong>Capacidade:</strong> {{ srt.capacidade }}</p>
-    <p><strong>Vagas disponíveis:</strong> {{ srt.vagasDisponiveis }}</p>
-    <p><strong>Tipo:</strong> {{ srt.tipo }}</p>
-    <p><strong>Gênero:</strong> {{ srt.genero }}</p>
+        <h1>{{ srt.nome }}</h1>
+        <p class="hero-city">{{ srt.cidade }}</p>
+      </section>
 
-    <button type="button" class="primary-btn" (click)="voltar()">
-      Voltar
-    </button>
+      <section class="info-section">
+        <h2>Contato</h2>
+
+        <div class="contact-card">
+          <span class="mini-label">Telefone Principal</span>
+
+          <div class="contact-row">
+            <strong>{{ srt.telefone }}</strong>
+            <span class="contact-icon">📞</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Gestão e esfera</h2>
+
+        <div class="info-grid">
+          <div class="mini-card">
+            <span class="mini-label">Tipo de Gestão</span>
+            <strong>{{ srt.gestao }}</strong>
+          </div>
+
+          <div class="mini-card">
+            <span class="mini-label">Esfera Administrativa</span>
+            <strong>{{ esferaLabel }}</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Capacidade e vagas</h2>
+
+        <div class="capacity-row">
+          <div>
+            <span class="capacity-label">Ocupação atual</span>
+            <strong class="capacity-percent">{{ percentualOcupacao }}%</strong>
+          </div>
+
+          <div class="capacity-side">
+            <div>
+              <span class="small-label">Total</span>
+              <strong>{{ srt.capacidade }}</strong>
+            </div>
+
+            <div>
+              <span class="small-label">Livres</span>
+              <strong class="free-number">{{ srt.vagasDisponiveis }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            [style.width.%]="percentualOcupacao"
+          ></div>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Perfil</h2>
+
+        <div class="tag-box tag-green">
+          {{ generoLabel }}
+        </div>
+
+        <div class="tag-box tag-blue">
+          {{ tipoLabel }}
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Localização</h2>
+
+        <div class="map-placeholder">
+          <div class="map-pin">📍</div>
+        </div>
+
+        <div class="address-box">
+          {{ srt.endereco }}
+        </div>
+      </section>
+
+      <button type="button" class="primary-btn">
+        Editar Informações do SRT
+      </button>
+    </div>
   </ng-container>
 
   <ng-template #naoEncontrado>
-    <p>SRT não encontrada.</p>
-    <a routerLink="/srts">Voltar para lista</a>
+    <div class="detail-container">
+      <p>SRT não encontrada.</p>
+    </div>
   </ng-template>
 </ion-content>
