@@ -79,10 +79,15 @@ ion-content {
 }
 
 .card-srt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
   background: var(--card-bg);
   border-radius: 24px;
   padding: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
 }
 
 .card-top,
@@ -168,45 +173,6 @@ ion-content {
   font-size: 2rem;
   box-shadow: 0 8px 24px rgba(11, 77, 136, 0.35);
   cursor: pointer;
-}
-
-/*
-.card-srt {
-  cursor: pointer;
-}
-
-ion-item.card-srt {
-  --background: transparent;
-  --padding-start: 0;
-  --inner-padding-end: 0;
-  --inner-border-width: 0;
-  --border-width: 0;
-  --min-height: auto;
-  display: block;
-  cursor: pointer;
-}
-  */
-
-.debug-button {
-  width: 100%;
-  text-align: left;
-  border: none;
-  background: transparent;
-  padding: 0;
-  display: block;
-  cursor: pointer;
-  font: inherit;
-}
-
-.card-srt {
-  background: var(--card-bg);
-  border-radius: 24px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-.card-content {
-  width: 100%;
 }
 
 @media (min-width: 768px) {

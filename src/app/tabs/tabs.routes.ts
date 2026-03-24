@@ -26,11 +26,6 @@ export const routes: Routes = [
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',
       },
-      {
-        path: 'srt/:id',
-        loadComponent: () =>
-        import('../pages/srt-detail/srt-detail.page').then(m => m.SrtDetailPage),
-      },
     ],
   },
   {

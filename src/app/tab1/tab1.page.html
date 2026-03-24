@@ -23,13 +23,24 @@
     </section>
 
     <section class="filters">
-      <button class="filter-btn active">Cidade</button>
-      <button class="filter-btn">Tipo</button>
-      <button class="filter-btn">Gênero</button>
+      <button class="filter-btn active" type="button" (click)="testClick('filtro-cidade')">
+        Cidade
+      </button>
+      <button class="filter-btn" type="button" (click)="testClick('filtro-tipo')">
+        Tipo
+      </button>
+      <button class="filter-btn" type="button" (click)="testClick('filtro-genero')">
+        Gênero
+      </button>
     </section>
 
     <section class="cards-list">
-      <div *ngFor="let srt of srts" class="card-srt" [routerLink]="['/tabs/srt', srt.id]">
+      <button
+        *ngFor="let srt of srts"
+        class="card-srt"
+        type="button"
+        (click)="openDetail(srt.id)"
+      >
         <div class="card-top">
           <span class="badge tipo">{{ srt.tipo }}</span>
 
@@ -54,9 +65,9 @@
           <span class="genero">{{ srt.genero }}</span>
           <span class="arrow">→</span>
         </div>
-      </div>
+      </button>
     </section>
 
-    <button class="fab-add">+</button>
+    <button class="fab-add" type="button" (click)="openNewSrt()">+</button>
   </div>
 </ion-content>
