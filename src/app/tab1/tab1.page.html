@@ -1,17 +1,62 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Rede SRT RS</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="home-container">
+    <section class="hero">
+      <h1>Serviços Residenciais Terapêuticos</h1>
+      <p>
+        Gerencie e monitore a rede estadual de saúde mental com transparência
+        e cuidado humanizado.
+      </p>
+    </section>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <section class="search-box">
+      <input
+        type="text"
+        placeholder="Buscar por nome ou município..."
+        disabled
+      />
+    </section>
+
+    <section class="filters">
+      <button class="filter-btn active">Cidade</button>
+      <button class="filter-btn">Tipo</button>
+      <button class="filter-btn">Gênero</button>
+    </section>
+
+    <section class="cards-list">
+      <div *ngFor="let srt of srts" class="card-srt" [routerLink]="['/tabs/srt', srt.id]">
+        <div class="card-top">
+          <span class="badge tipo">{{ srt.tipo }}</span>
+
+          <span
+            class="badge vagas"
+            [class.sem-vagas]="srt.vagasDisponiveis === 0"
+          >
+            {{
+              srt.vagasDisponiveis === 1
+                ? '1 vaga livre'
+                : srt.vagasDisponiveis + ' vagas livres'
+            }}
+          </span>
+        </div>
+
+        <div class="card-body">
+          <h3>{{ srt.nome }}</h3>
+          <p class="cidade">{{ srt.cidade }}</p>
+        </div>
+
+        <div class="card-footer">
+          <span class="genero">{{ srt.genero }}</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </section>
+
+    <button class="fab-add">+</button>
+  </div>
 </ion-content>

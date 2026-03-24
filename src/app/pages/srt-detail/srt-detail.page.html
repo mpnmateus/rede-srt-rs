@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ srt?.nome || 'Detalhes do SRT' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="srt; else naoEncontrado">
+    <p><strong>Cidade:</strong> {{ srt.cidade }}</p>
+    <p><strong>Telefone:</strong> {{ srt.telefone }}</p>
+    <p><strong>Endereço:</strong> {{ srt.endereco }}</p>
+    <p><strong>Gestão:</strong> {{ srt.gestao }}</p>
+    <p><strong>Esfera:</strong> {{ srt.esfera }}</p>
+    <p><strong>Capacidade:</strong> {{ srt.capacidade }}</p>
+    <p><strong>Vagas disponíveis:</strong> {{ srt.vagasDisponiveis }}</p>
+    <p><strong>Tipo:</strong> {{ srt.tipo }}</p>
+    <p><strong>Gênero:</strong> {{ srt.genero }}</p>
+  </ng-container>
+
+  <ng-template #naoEncontrado>
+    <p>SRT não encontrada.</p>
+  </ng-template>
+</ion-content>
