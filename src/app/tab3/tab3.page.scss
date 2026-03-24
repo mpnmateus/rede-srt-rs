@@ -1,0 +1,22 @@
+ion-content {
+  --padding-bottom: 90px;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 12px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  z-index: 10;
+}
+
+.bottom-nav a {
+  color: #005c92;
+  text-decoration: none;
+  font-weight: 600;
+}

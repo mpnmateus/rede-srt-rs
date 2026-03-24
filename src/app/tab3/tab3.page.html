@@ -1,17 +1,30 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Sobre</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h1>Sobre o aplicativo</h1>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <p>
+    O Rede SRT RS é um aplicativo mobile voltado ao apoio da gestão de
+    Serviços Residenciais Terapêuticos no Rio Grande do Sul.
+  </p>
+
+  <p>
+    Seu objetivo é centralizar informações sobre unidades, vagas e dados
+    essenciais para consulta rápida por coordenadores de saúde.
+  </p>
+
+  <p>
+    Este MVP contempla listagem de SRTs, visualização de detalhes e tela de
+    cadastro.
+  </p>
 </ion-content>
+
+<footer class="bottom-nav">
+  <a routerLink="/srts">SRTs</a>
+  <a routerLink="/novo">Cadastrar</a>
+  <a routerLink="/sobre">Sobre</a>
+</footer>

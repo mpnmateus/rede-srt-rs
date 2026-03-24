@@ -1,0 +1,57 @@
+ion-content {
+  --padding-bottom: 90px;
+}
+
+.form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.form-layout label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.form-layout input,
+.form-layout select {
+  padding: 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.primary-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #005c92;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 12px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  z-index: 10;
+}
+
+.bottom-nav a {
+  color: #005c92;
+  text-decoration: none;
+  font-weight: 600;
+}

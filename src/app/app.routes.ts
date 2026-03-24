@@ -1,10 +1,22 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'srts', pathMatch: 'full' },
+
   {
-    path: '',
-    loadChildren: () =>
-      import('./tabs/tabs.routes').then((m) => m.routes),
+    path: 'srts',
+    loadComponent: () =>
+      import('./tab1/tab1.page').then((m) => m.Tab1Page),
+  },
+  {
+    path: 'novo',
+    loadComponent: () =>
+      import('./tab2/tab2.page').then((m) => m.Tab2Page),
+  },
+  {
+    path: 'sobre',
+    loadComponent: () =>
+      import('./tab3/tab3.page').then((m) => m.Tab3Page),
   },
   {
     path: 'srt/:id',

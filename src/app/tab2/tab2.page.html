@@ -1,17 +1,82 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Novo SRT</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h1>Cadastro de SRT</h1>
+  <p>Preencha os dados básicos da unidade.</p>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <form class="form-layout">
+    <label>
+      Nome da unidade
+      <input type="text" placeholder="Ex: SRT Esperança" />
+    </label>
+
+    <label>
+      Cidade
+      <input type="text" placeholder="Ex: Porto Alegre" />
+    </label>
+
+    <label>
+      Telefone
+      <input type="text" placeholder="(51) 0000-0000" />
+    </label>
+
+    <label>
+      Endereço
+      <input type="text" placeholder="Rua, número, bairro" />
+    </label>
+
+    <label>
+      Gestão
+      <input type="text" placeholder="Órgão responsável" />
+    </label>
+
+    <label>
+      Esfera
+      <select>
+        <option>Pública</option>
+        <option>Privada</option>
+      </select>
+    </label>
+
+    <label>
+      Tipo
+      <select>
+        <option>Tipo 1</option>
+        <option>Tipo 2</option>
+      </select>
+    </label>
+
+    <label>
+      Gênero
+      <select>
+        <option>Misto</option>
+        <option>Masculino</option>
+        <option>Feminino</option>
+      </select>
+    </label>
+
+    <label>
+      Capacidade total
+      <input type="number" placeholder="0" />
+    </label>
+
+    <label>
+      Vagas disponíveis
+      <input type="number" placeholder="0" />
+    </label>
+
+    <button type="button" class="primary-btn">
+      Salvar SRT
+    </button>
+  </form>
 </ion-content>
+
+<footer class="bottom-nav">
+  <a routerLink="/srts">SRTs</a>
+  <a routerLink="/novo">Cadastrar</a>
+  <a routerLink="/sobre">Sobre</a>
+</footer>

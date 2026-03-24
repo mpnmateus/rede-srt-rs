@@ -1,73 +1,31 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
     <ion-title>Rede SRT RS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="home-container">
-    <section class="hero">
-      <h1>Serviços Residenciais Terapêuticos</h1>
-      <p>
-        Gerencie e monitore a rede estadual de saúde mental com transparência
-        e cuidado humanizado.
-      </p>
-    </section>
+<ion-content class="ion-padding">
+  <h1>Serviços Residenciais Terapêuticos</h1>
+  <p>Lista de SRTs cadastradas.</p>
 
-    <section class="search-box">
-      <input
-        type="text"
-        placeholder="Buscar por nome ou município..."
-        disabled
-      />
-    </section>
+  <button type="button" (click)="openNovo()">Novo SRT</button>
 
-    <section class="filters">
-      <button class="filter-btn active" type="button" (click)="testClick('filtro-cidade')">
-        Cidade
-      </button>
-      <button class="filter-btn" type="button" (click)="testClick('filtro-tipo')">
-        Tipo
-      </button>
-      <button class="filter-btn" type="button" (click)="testClick('filtro-genero')">
-        Gênero
-      </button>
-    </section>
-
-    <section class="cards-list">
-      <button
-        *ngFor="let srt of srts"
-        class="card-srt"
-        type="button"
-        (click)="openDetail(srt.id)"
-      >
-        <div class="card-top">
-          <span class="badge tipo">{{ srt.tipo }}</span>
-
-          <span
-            class="badge vagas"
-            [class.sem-vagas]="srt.vagasDisponiveis === 0"
-          >
-            {{
-              srt.vagasDisponiveis === 1
-                ? '1 vaga livre'
-                : srt.vagasDisponiveis + ' vagas livres'
-            }}
-          </span>
-        </div>
-
-        <div class="card-body">
-          <h3>{{ srt.nome }}</h3>
-          <p class="cidade">{{ srt.cidade }}</p>
-        </div>
-
-        <div class="card-footer">
-          <span class="genero">{{ srt.genero }}</span>
-          <span class="arrow">→</span>
-        </div>
-      </button>
-    </section>
-
-    <button class="fab-add" type="button" (click)="openNewSrt()">+</button>
+  <div style="margin-top: 24px;">
+    <button
+      *ngFor="let srt of srts"
+      type="button"
+      (click)="openDetail(srt.id)"
+      style="display:block; width:100%; margin-bottom:12px; padding:16px; text-align:left;"
+    >
+      <strong>{{ srt.nome }}</strong><br />
+      {{ srt.cidade }}<br />
+      Vagas: {{ srt.vagasDisponiveis }}
+    </button>
   </div>
 </ion-content>
+
+<footer class="bottom-nav">
+  <a routerLink="/srts">SRTs</a>
+  <a routerLink="/novo">Cadastrar</a>
+  <a routerLink="/sobre">Sobre</a>
+</footer>
