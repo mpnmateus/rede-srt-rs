@@ -1,31 +1,72 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Rede SRT RS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1>Serviços Residenciais Terapêuticos</h1>
-  <p>Lista de SRTs cadastradas.</p>
+<ion-content [fullscreen]="true">
+  <div class="home-container">
+    <section class="hero">
+      <h1>Serviços Residenciais Terapêuticos</h1>
+      <p>
+        Gerencie e monitore a rede estadual de saúde mental com transparência
+        e cuidado humanizado.
+      </p>
+    </section>
 
-  <button type="button" (click)="openNovo()">Novo SRT</button>
+    <section class="search-box">
+      <input
+        type="text"
+        placeholder="Buscar por nome ou município..."
+      />
+    </section>
 
-  <div style="margin-top: 24px;">
-    <button
-      *ngFor="let srt of srts"
-      type="button"
-      (click)="openDetail(srt.id)"
-      style="display:block; width:100%; margin-bottom:12px; padding:16px; text-align:left;"
-    >
-      <strong>{{ srt.nome }}</strong><br />
-      {{ srt.cidade }}<br />
-      Vagas: {{ srt.vagasDisponiveis }}
-    </button>
+    <section class="filters">
+      <button class="filter-btn active" type="button">Cidade</button>
+      <button class="filter-btn" type="button">Tipo</button>
+      <button class="filter-btn" type="button">Gênero</button>
+    </section>
+
+    <section class="srt-list">
+      <button
+        *ngFor="let srt of srts"
+        type="button"
+        class="srt-card"
+        (click)="openDetail(srt.id)"
+      >
+        <div class="card-top">
+          <span class="badge tipo">{{ srt.tipo }}</span>
+
+          <span
+            class="badge vagas"
+            [class.sem-vagas]="srt.vagasDisponiveis === 0"
+          >
+            {{
+              srt.vagasDisponiveis === 1
+                ? '1 vaga livre'
+                : srt.vagasDisponiveis + ' vagas livres'
+            }}
+          </span>
+        </div>
+
+        <div class="card-body">
+          <h2>{{ srt.nome }}</h2>
+          <p class="cidade">{{ srt.cidade }}</p>
+        </div>
+
+        <div class="card-footer">
+          <span class="genero">{{ srt.genero }}</span>
+          <span class="arrow">→</span>
+        </div>
+      </button>
+    </section>
+
+    <button type="button" class="fab-add" (click)="openNovo()">+</button>
   </div>
 </ion-content>
 
 <footer class="bottom-nav">
-  <a routerLink="/srts">SRTs</a>
-  <a routerLink="/novo">Cadastrar</a>
-  <a routerLink="/sobre">Sobre</a>
+  <a routerLink="/srts">Início</a>
+  <a routerLink="/novo">Novo SRT</a>
+  <a routerLink="/sobre">Perfil</a>
 </footer>
