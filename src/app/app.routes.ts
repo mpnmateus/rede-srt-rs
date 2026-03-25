@@ -23,4 +23,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/srt-detail/srt-detail.page').then((m) => m.SrtDetailPage),
   },
+  {
+    path: 'srt/:id/editar',
+    loadComponent: () =>
+      import('./pages/srt-edit/srt-edit.page').then((m) => m.SrtEditPage),
+  },
 ];

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   IonHeader,
   IonToolbar,
@@ -29,18 +29,14 @@ import { Srt } from '../../models/srt.model';
 })
 export class SrtDetailPage {
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
   private srtService = inject(SrtService);
-  private location = inject(Location);
 
   srt?: Srt;
 
   constructor() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.srt = this.srtService.getSrtById(id);
-  }
-
-  voltar(): void {
-    this.location.back();
   }
 
   get percentualOcupacao(): number {
@@ -77,5 +73,10 @@ export class SrtDetailPage {
   get tipoLabel(): string {
     if (!this.srt) return '';
     return this.srt.tipo.replace('tipo', 'SRT Tipo ').toUpperCase();
+  }
+
+  editar(): void {
+    if (!this.srt) return;
+    this.router.navigate(['/srt', this.srt.id, 'editar']);
   }
 }

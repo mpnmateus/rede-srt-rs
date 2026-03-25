@@ -13,7 +13,7 @@
       <section class="hero-card">
         <div class="hero-top">
           <span class="hero-badge">{{ tipoLabel }}</span>
-          <button type="button" class="hero-edit-icon">✎</button>
+          <button type="button" class="hero-edit-icon" (click)="editar()">✎</button>
         </div>
 
         <h1>{{ srt.nome }}</h1>
@@ -80,7 +80,7 @@
       </section>
 
       <section class="info-section">
-        <h2>Perfil</h2>
+        <h2>Sobre</h2>
 
         <div class="tag-box tag-green">
           {{ generoLabel }}
@@ -103,7 +103,7 @@
         </div>
       </section>
 
-      <button type="button" class="primary-btn">
+      <button type="button" class="primary-btn" (click)="editar()">
         Editar Informações do SRT
       </button>
     </div>

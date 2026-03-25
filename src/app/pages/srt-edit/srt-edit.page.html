@@ -1,0 +1,117 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/srts"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar SRT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="edit-container">
+    <section class="hero-info">
+      <span class="hero-kicker">Registro identificado</span>
+      <h1>SRT Esperança</h1>
+
+      <div class="last-update">
+        Última atualização: 12 Out 2023
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Informações Gerais</h2>
+
+      <div class="field-group">
+        <label for="nome">Nome do Serviço</label>
+        <input id="nome" type="text" value="SRT Esperança" />
+      </div>
+
+      <div class="field-group">
+        <label for="modalidade">Modalidade</label>
+        <select id="modalidade">
+          <option>Tipo II</option>
+          <option>Tipo I</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="endereco">Endereço Completo</label>
+        <input
+          id="endereco"
+          type="text"
+          value="Rua das Acácias, 452 - Bairro Centro, Porto Alegre"
+        />
+      </div>
+    </section>
+
+    <section class="vacancy-panel">
+      <h2>Gestão de Vagas</h2>
+
+      <p class="vacancy-text">
+        Ajuste a disponibilidade atual do serviço. Isso refletirá
+        instantaneamente na rede de encaminhamentos.
+      </p>
+
+      <div class="occupancy-head">
+        <div class="occupancy-icon">👥</div>
+
+        <div>
+          <span class="occupancy-label">Ocupação Atual</span>
+          <strong class="occupancy-value">40% preenchido</strong>
+        </div>
+      </div>
+
+      <div class="counter-card">
+        <div class="counter-grid">
+          <div>
+            <span class="small-label">Vagas Ocupadas</span>
+            <div class="counter-line">
+              <button type="button" class="counter-btn">−</button>
+              <strong class="counter-value">4</strong>
+              <button type="button" class="counter-btn">+</button>
+            </div>
+          </div>
+
+          <div>
+            <span class="small-label">Capacidade Total</span>
+            <div class="capacity-box">10</div>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 40%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mini-resource-card">
+      <div class="resource-icon green">🛡</div>
+      <div>
+        <strong>Corpo Técnico</strong>
+        <span>4 profissionais ativos</span>
+      </div>
+    </section>
+
+    <section class="mini-resource-card">
+      <div class="resource-icon blue">🖼</div>
+      <div>
+        <strong>Galeria de Fotos</strong>
+        <span>6 fotos anexadas</span>
+      </div>
+    </section>
+
+    <button type="button" class="primary-btn">
+      Salvar Alterações
+    </button>
+
+    <button type="button" class="ghost-danger-btn">
+      Arquivar Serviço
+    </button>
+  </div>
+</ion-content>
+
+<footer class="bottom-nav">
+  <a routerLink="/srts">Início</a>
+  <a routerLink="/novo">Novo SRT</a>
+  <a routerLink="/sobre">Perfil</a>
+</footer>
