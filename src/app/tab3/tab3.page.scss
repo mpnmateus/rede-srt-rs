@@ -1,22 +1,75 @@
-ion-content {
-  --padding-bottom: 90px;
+.about-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
 }
 
-.bottom-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 14px 12px;
-  background: #fff;
-  border-top: 1px solid #ddd;
-  z-index: 10;
+.about-hero {
+  text-align: center;
+  margin-bottom: 28px;
+
+  h1 {
+    font-size: 1.8rem;
+    color: #0b4d88;
+    margin-bottom: 6px;
+  }
+
+  p {
+    color: #5f6d78;
+    font-size: 1rem;
+  }
 }
 
-.bottom-nav a {
-  color: #005c92;
-  text-decoration: none;
-  font-weight: 600;
+.about-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  h2 {
+    margin-bottom: 12px;
+    color: #083761;
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: #1b2a34;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  ul {
+    padding-left: 18px;
+
+    li {
+      margin-bottom: 6px;
+      color: #1b2a34;
+    }
+  }
+}
+
+.about-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #5f6d78;
+  font-size: 0.9rem;
+}
+
+.author {
+  text-align: center;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #7a8a96;
+
+  a {
+    color: #005c92; // cor primária do app
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

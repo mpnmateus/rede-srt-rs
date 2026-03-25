@@ -1,30 +1,57 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Sobre</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1>Sobre o aplicativo</h1>
+<ion-content [fullscreen]="true">
+  <div class="about-container">
 
-  <p>
-    O Rede SRT RS é um aplicativo mobile voltado ao apoio da gestão de
-    Serviços Residenciais Terapêuticos no Rio Grande do Sul.
-  </p>
+    <section class="about-hero">
+      <h1>Rede SRT RS</h1>
+      <p>Gestão inteligente de Serviços Residenciais Terapêuticos</p>
+    </section>
 
-  <p>
-    Seu objetivo é centralizar informações sobre unidades, vagas e dados
-    essenciais para consulta rápida por coordenadores de saúde.
-  </p>
+    <section class="about-card">
+      <h2>Sobre o projeto</h2>
+      <p>
+        O Rede SRT RS é um aplicativo mobile voltado ao apoio da gestão de
+        Serviços Residenciais Terapêuticos no Rio Grande do Sul.
+      </p>
+      <p>
+        Seu objetivo é centralizar informações sobre unidades, vagas e dados
+        essenciais para consulta rápida por coordenadores de saúde.
+      </p>
+    </section>
 
-  <p>
-    Este MVP contempla listagem de SRTs, visualização de detalhes e tela de
-    cadastro.
-  </p>
+    <section class="about-card">
+      <h2>Funcionalidades</h2>
+      <ul>
+        <li>Listagem de SRTs</li>
+        <li>Visualização detalhada das unidades</li>
+        <li>Cadastro de novos serviços</li>
+        <li>Filtros por cidade, tipo e gênero</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <h2>Sobre o MVP</h2>
+      <p>
+        Esta versão representa um MVP (Produto Mínimo Viável), com foco em
+        usabilidade, organização de dados e navegação fluida.
+      </p>
+    </section>
+
+    <div class="author">
+      Desenvolvido por
+      <a
+        href="https://www.linkedin.com/in/mateuspettenuzzo/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Mateus Pettenuzzo Novo
+      </a>
+    </div>
+
+  </div>
 </ion-content>
-
-<footer class="bottom-nav">
-  <a routerLink="/srts">SRTs</a>
-  <a routerLink="/novo">Cadastrar</a>
-  <a routerLink="/sobre">Sobre</a>
-</footer>
