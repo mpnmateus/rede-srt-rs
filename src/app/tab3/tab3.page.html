@@ -1,12 +1,14 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/srts"></ion-back-button>
+    </ion-buttons>
     <ion-title>Sobre</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="about-container">
-
     <section class="about-hero">
       <h1>Rede SRT RS</h1>
       <p>Gestão inteligente de Serviços Residenciais Terapêuticos</p>
@@ -42,16 +44,26 @@
       </p>
     </section>
 
-    <div class="author">
-      Desenvolvido por
-      <a
-        href="https://www.linkedin.com/in/mateuspettenuzzo/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Mateus Pettenuzzo Novo
-      </a>
-    </div>
+    <section class="about-signature-card">
+      <span class="signature-label">Autoria</span>
 
+      <div class="author">
+        Desenvolvido por
+        <a
+          href="https://www.linkedin.com/in/mateuspettenuzzo/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Mateus Pettenuzzo Novo
+          <span class="external-icon">↗</span>
+        </a>
+      </div>
+    </section>
   </div>
 </ion-content>
+
+<footer class="bottom-nav">
+  <a routerLink="/srts">Início</a>
+  <a routerLink="/novo">Novo SRT</a>
+  <a routerLink="/sobre">Sobre</a>
+</footer>
