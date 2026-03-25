@@ -51,8 +51,22 @@ export class Tab1Page {
     );
   }
 
+  get filtrosAtivosCount(): number {
+    let count = 0;
+
+    if (this.filtroCidade) count++;
+    if (this.filtroTipo) count++;
+    if (this.filtroGenero) count++;
+
+    return count;
+  }
+
   toggleFiltros(): void {
     this.painelFiltrosAberto = !this.painelFiltrosAberto;
+  }
+
+  fecharFiltros(): void {
+    this.painelFiltrosAberto = false;
   }
 
   aplicarFiltros(): void {

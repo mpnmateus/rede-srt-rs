@@ -23,29 +23,26 @@
       />
     </section>
 
-    <section class="filters">
-      <button
-        class="filter-btn active"
-        type="button"
-        (click)="toggleFiltros()"
-      >
-        Cidade
-      </button>
+    <section class="filter-chips">
+      <span class="filter-chip" [class.active]="painelFiltrosAberto">Cidade</span>
+      <span class="filter-chip" [class.active]="painelFiltrosAberto">Tipo</span>
+      <span class="filter-chip" [class.active]="painelFiltrosAberto">Gênero</span>
+    </section>
 
+    <section class="filter-toolbar">
       <button
-        class="filter-btn"
         type="button"
+        class="advanced-filter-btn"
+        [class.active]="painelFiltrosAberto"
         (click)="toggleFiltros()"
       >
-        Tipo
-      </button>
-
-      <button
-        class="filter-btn"
-        type="button"
-        (click)="toggleFiltros()"
-      >
-        Gênero
+        {{
+          painelFiltrosAberto
+            ? 'Ocultar filtros'
+            : (filtrosAtivosCount > 0
+                ? 'Filtros avançados (' + filtrosAtivosCount + ')'
+                : 'Filtros avançados')
+        }}
       </button>
     </section>
 
@@ -91,9 +88,11 @@
         </select>
       </div>
 
-      <button type="button" class="clear-btn" (click)="limparFiltros()">
-        Limpar filtros
-      </button>
+      <div class="filter-panel-actions">
+        <button type="button" class="clear-btn" (click)="limparFiltros()">
+          Limpar filtros
+        </button>
+      </div>
     </section>
 
     <section class="result-summary">
