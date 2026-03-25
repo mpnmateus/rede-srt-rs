@@ -18,18 +18,91 @@
       <input
         type="text"
         placeholder="Buscar por nome ou município..."
+        [(ngModel)]="busca"
+        (input)="aplicarFiltros()"
       />
     </section>
 
     <section class="filters">
-      <button class="filter-btn active" type="button">Cidade</button>
-      <button class="filter-btn" type="button">Tipo</button>
-      <button class="filter-btn" type="button">Gênero</button>
+      <button
+        class="filter-btn active"
+        type="button"
+        (click)="toggleFiltros()"
+      >
+        Cidade
+      </button>
+
+      <button
+        class="filter-btn"
+        type="button"
+        (click)="toggleFiltros()"
+      >
+        Tipo
+      </button>
+
+      <button
+        class="filter-btn"
+        type="button"
+        (click)="toggleFiltros()"
+      >
+        Gênero
+      </button>
+    </section>
+
+    <section class="filter-panel" *ngIf="painelFiltrosAberto">
+      <div class="field-group">
+        <label for="cidadeFiltro">Cidade</label>
+        <select
+          id="cidadeFiltro"
+          [(ngModel)]="filtroCidade"
+          (change)="aplicarFiltros()"
+        >
+          <option value="">Todas</option>
+          <option *ngFor="let cidade of cidadesDisponiveis" [value]="cidade">
+            {{ cidade }}
+          </option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="tipoFiltro">Tipo</label>
+        <select
+          id="tipoFiltro"
+          [(ngModel)]="filtroTipo"
+          (change)="aplicarFiltros()"
+        >
+          <option value="">Todos</option>
+          <option value="tipo1">Tipo 1</option>
+          <option value="tipo2">Tipo 2</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="generoFiltro">Gênero</label>
+        <select
+          id="generoFiltro"
+          [(ngModel)]="filtroGenero"
+          (change)="aplicarFiltros()"
+        >
+          <option value="">Todos</option>
+          <option value="misto">Misto</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+        </select>
+      </div>
+
+      <button type="button" class="clear-btn" (click)="limparFiltros()">
+        Limpar filtros
+      </button>
+    </section>
+
+    <section class="result-summary">
+      <span>{{ srtsFiltradas.length }} resultado(s)</span>
     </section>
 
     <section class="srt-list">
       <button
-        *ngFor="let srt of srts"
+        *ngFor="let srt of srtsFiltradas"
         type="button"
         class="srt-card"
         (click)="openDetail(srt.id)"
@@ -59,6 +132,10 @@
           <span class="arrow">→</span>
         </div>
       </button>
+
+      <div class="empty-state" *ngIf="srtsFiltradas.length === 0">
+        Nenhuma SRT encontrada com os filtros aplicados.
+      </div>
     </section>
 
     <button type="button" class="fab-add" (click)="openNovo()">+</button>

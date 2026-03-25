@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import {
   IonHeader,
   IonToolbar,
@@ -15,16 +16,75 @@ import { SrtService } from '../services/srt';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, RouterLink],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    RouterLink
+  ],
 })
 export class Tab1Page {
   private srtService = inject(SrtService);
   private router = inject(Router);
 
   srts: Srt[] = [];
+  srtsFiltradas: Srt[] = [];
+
+  busca = '';
+  filtroCidade = '';
+  filtroTipo = '';
+  filtroGenero = '';
+
+  painelFiltrosAberto = false;
 
   constructor() {
     this.srts = this.srtService.getSrts();
+    this.srtsFiltradas = [...this.srts];
+  }
+
+  get cidadesDisponiveis(): string[] {
+    return [...new Set(this.srts.map((srt) => srt.cidade))].sort((a, b) =>
+      a.localeCompare(b)
+    );
+  }
+
+  toggleFiltros(): void {
+    this.painelFiltrosAberto = !this.painelFiltrosAberto;
+  }
+
+  aplicarFiltros(): void {
+    const termo = this.busca.trim().toLowerCase();
+
+    this.srtsFiltradas = this.srts.filter((srt) => {
+      const matchBusca =
+        !termo ||
+        srt.nome.toLowerCase().includes(termo) ||
+        srt.cidade.toLowerCase().includes(termo);
+
+      const matchCidade =
+        !this.filtroCidade || srt.cidade === this.filtroCidade;
+
+      const matchTipo =
+        !this.filtroTipo ||
+        srt.tipo.toLowerCase() === this.filtroTipo.toLowerCase();
+
+      const matchGenero =
+        !this.filtroGenero ||
+        srt.genero.toLowerCase() === this.filtroGenero.toLowerCase();
+
+      return matchBusca && matchCidade && matchTipo && matchGenero;
+    });
+  }
+
+  limparFiltros(): void {
+    this.busca = '';
+    this.filtroCidade = '';
+    this.filtroTipo = '';
+    this.filtroGenero = '';
+    this.srtsFiltradas = [...this.srts];
   }
 
   openDetail(id: number): void {
