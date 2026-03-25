@@ -190,8 +190,17 @@
       </div>
     </section>
 
-    <button type="button" class="primary-btn">
-      Salvar Alterações
+    <div class="success-banner" *ngIf="salvoComSucesso">
+      Alterações salvas com sucesso.
+    </div>
+
+    <button
+      type="button"
+      class="primary-btn"
+      [disabled]="salvando"
+      (click)="salvarAlteracoes()"
+    >
+      {{ salvando ? 'Salvando...' : 'Salvar Alterações' }}
     </button>
 
     <button type="button" class="ghost-danger-btn">

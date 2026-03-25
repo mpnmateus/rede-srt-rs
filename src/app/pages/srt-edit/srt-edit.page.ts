@@ -36,6 +36,9 @@ export class SrtEditPage {
 
   srt?: Srt;
 
+  salvando = false;
+  salvoComSucesso = false;
+
   form = {
     id: 0,
     nome: '',
@@ -75,7 +78,12 @@ export class SrtEditPage {
   private normalizarEsfera(valor: string): string {
     const esfera = (valor || '').toLowerCase().trim();
 
-    if (esfera === 'publica' || esfera === 'pública' || esfera === 'publico' || esfera === 'público') {
+    if (
+      esfera === 'publica' ||
+      esfera === 'pública' ||
+      esfera === 'publico' ||
+      esfera === 'público'
+    ) {
       return 'publica';
     }
 
@@ -132,15 +140,17 @@ export class SrtEditPage {
     }
   }
 
-  get tituloTipo(): string {
-    return this.form.tipo === 'tipo2' ? 'Tipo 2' : 'Tipo 1';
-  }
+  salvarAlteracoes(): void {
+    this.salvando = true;
+    this.salvoComSucesso = false;
 
-  get tituloGenero(): string {
-    const genero = this.form.genero.toLowerCase();
+    setTimeout(() => {
+      this.salvando = false;
+      this.salvoComSucesso = true;
 
-    if (genero === 'masculino') return 'Público Masculino';
-    if (genero === 'feminino') return 'Público Feminino';
-    return 'Público Misto';
+      setTimeout(() => {
+        this.salvoComSucesso = false;
+      }, 2500);
+    }, 900);
   }
 }
