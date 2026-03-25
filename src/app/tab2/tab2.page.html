@@ -96,8 +96,17 @@
       </div>
     </section>
 
-    <button type="button" class="primary-btn">
-      Salvar SRT
+    <div class="success-banner" *ngIf="salvoComSucesso">
+      SRT cadastrada com sucesso.
+    </div>
+
+    <button
+      type="button"
+      class="primary-btn"
+      [disabled]="salvando"
+      (click)="salvarSrt()"
+    >
+      {{ salvando ? 'Salvando...' : 'Salvar SRT' }}
     </button>
   </div>
 </ion-content>

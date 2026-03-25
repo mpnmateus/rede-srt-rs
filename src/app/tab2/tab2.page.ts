@@ -26,4 +26,21 @@ import {
     RouterLink
   ],
 })
-export class Tab2Page {}
+export class Tab2Page {
+  salvando = false;
+  salvoComSucesso = false;
+
+  salvarSrt(): void {
+    this.salvando = true;
+    this.salvoComSucesso = false;
+
+    setTimeout(() => {
+      this.salvando = false;
+      this.salvoComSucesso = true;
+
+      setTimeout(() => {
+        this.salvoComSucesso = false;
+      }, 2500);
+    }, 900);
+  }
+}

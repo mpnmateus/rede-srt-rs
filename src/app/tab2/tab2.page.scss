@@ -110,6 +110,16 @@ ion-content {
   gap: 14px;
 }
 
+.success-banner {
+  margin: 8px 0 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #dff3ef;
+  color: #176a5d;
+  font-weight: 700;
+  text-align: center;
+}
+
 .primary-btn {
   display: block;
   width: 100%;
@@ -122,6 +132,10 @@ ion-content {
   font-size: 1.1rem;
   font-weight: 700;
   box-shadow: 0 8px 24px rgba(11, 77, 136, 0.22);
+}
+
+.primary-btn:disabled {
+  opacity: 0.75;
 }
 
 .bottom-nav {
