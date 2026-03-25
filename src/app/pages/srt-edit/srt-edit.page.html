@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="edit-container">
+  <div class="edit-container" *ngIf="srt; else naoEncontrado">
     <section class="hero-info">
       <span class="hero-kicker">Registro identificado</span>
-      <h1>SRT Esperança</h1>
+      <h1>{{ form.nome }}</h1>
 
       <div class="last-update">
         Última atualização: 12 Out 2023
@@ -23,24 +23,97 @@
 
       <div class="field-group">
         <label for="nome">Nome do Serviço</label>
-        <input id="nome" type="text" value="SRT Esperança" />
+        <input
+          id="nome"
+          name="nome"
+          type="text"
+          [(ngModel)]="form.nome"
+        />
       </div>
 
       <div class="field-group">
-        <label for="modalidade">Modalidade</label>
-        <select id="modalidade">
-          <option>Tipo II</option>
-          <option>Tipo I</option>
-        </select>
+        <label for="cidade">Cidade</label>
+        <input
+          id="cidade"
+          name="cidade"
+          type="text"
+          [(ngModel)]="form.cidade"
+        />
+      </div>
+
+      <div class="field-group">
+        <label for="telefone">Telefone</label>
+        <input
+          id="telefone"
+          name="telefone"
+          type="text"
+          [(ngModel)]="form.telefone"
+        />
       </div>
 
       <div class="field-group">
         <label for="endereco">Endereço Completo</label>
         <input
           id="endereco"
+          name="endereco"
           type="text"
-          value="Rua das Acácias, 452 - Bairro Centro, Porto Alegre"
+          [(ngModel)]="form.endereco"
         />
+      </div>
+
+      <div class="field-group">
+        <label for="gestao">Gestão</label>
+        <input
+          id="gestao"
+          name="gestao"
+          type="text"
+          [(ngModel)]="form.gestao"
+        />
+      </div>
+
+      <div class="field-group">
+        <label for="esfera">Esfera</label>
+        <select
+          id="esfera"
+          name="esfera"
+          [(ngModel)]="form.esfera"
+        >
+          <option value="publica">Pública</option>
+          <option value="privada">Privada</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Perfil</h2>
+
+      <div class="profile-box">
+        <div class="field-group">
+          <label for="genero">Gênero</label>
+          <select
+            id="genero"
+            name="genero"
+            class="pill-select pill-green"
+            [(ngModel)]="form.genero"
+          >
+            <option value="misto">Misto</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+          </select>
+        </div>
+
+        <div class="field-group no-margin">
+          <label for="tipo">Tipo</label>
+          <select
+            id="tipo"
+            name="tipo"
+            class="pill-select pill-blue"
+            [(ngModel)]="form.tipo"
+          >
+            <option value="tipo1">Tipo 1</option>
+            <option value="tipo2">Tipo 2</option>
+          </select>
+        </div>
       </div>
     </section>
 
@@ -57,7 +130,7 @@
 
         <div>
           <span class="occupancy-label">Ocupação Atual</span>
-          <strong class="occupancy-value">40% preenchido</strong>
+          <strong class="occupancy-value">{{ percentualOcupacao }}% preenchido</strong>
         </div>
       </div>
 
@@ -66,20 +139,37 @@
           <div>
             <span class="small-label">Vagas Ocupadas</span>
             <div class="counter-line">
-              <button type="button" class="counter-btn">−</button>
-              <strong class="counter-value">4</strong>
-              <button type="button" class="counter-btn">+</button>
+              <button type="button" class="counter-btn" (click)="decrementarOcupadas()">−</button>
+              <strong class="counter-value">{{ vagasOcupadas }}</strong>
+              <button type="button" class="counter-btn" (click)="incrementarOcupadas()">+</button>
             </div>
           </div>
 
           <div>
             <span class="small-label">Capacidade Total</span>
-            <div class="capacity-box">10</div>
+            <input
+              class="capacity-input"
+              type="number"
+              name="capacidade"
+              [(ngModel)]="form.capacidade"
+              (ngModelChange)="normalizarCapacidade()"
+            />
           </div>
         </div>
 
+        <div class="field-group compact-field">
+          <label for="vagasLivres">Vagas Livres</label>
+          <input
+            id="vagasLivres"
+            name="vagasLivres"
+            type="number"
+            [(ngModel)]="form.vagasDisponiveis"
+            (ngModelChange)="normalizarVagas()"
+          />
+        </div>
+
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 40%;"></div>
+          <div class="progress-fill" [style.width.%]="percentualOcupacao"></div>
         </div>
       </div>
     </section>
@@ -108,6 +198,13 @@
       Arquivar Serviço
     </button>
   </div>
+
+  <ng-template #naoEncontrado>
+    <div class="edit-container">
+      <h1>SRT não encontrada</h1>
+      <p>Não foi possível localizar o registro para edição.</p>
+    </div>
+  </ng-template>
 </ion-content>
 
 <footer class="bottom-nav">

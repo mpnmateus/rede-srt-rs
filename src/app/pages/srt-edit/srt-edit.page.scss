@@ -72,6 +72,10 @@ ion-content {
   margin-bottom: 18px;
 }
 
+.field-group.no-margin {
+  margin-bottom: 0;
+}
+
 .field-group label {
   color: var(--text-main);
   font-weight: 600;
@@ -79,7 +83,8 @@ ion-content {
 }
 
 .field-group input,
-.field-group select {
+.field-group select,
+.capacity-input {
   width: 100%;
   min-height: 56px;
   border: none;
@@ -90,6 +95,26 @@ ion-content {
   font-size: 1rem;
   color: var(--text-main);
   box-sizing: border-box;
+}
+
+.profile-box {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.pill-select {
+  font-weight: 700;
+}
+
+.pill-green {
+  background: #dff3ef !important;
+  color: #176a5d;
+}
+
+.pill-blue {
+  background: #e7eef8 !important;
+  color: #234d88;
 }
 
 .vacancy-panel {
@@ -176,17 +201,16 @@ ion-content {
   color: var(--primary);
 }
 
-.capacity-box {
+.capacity-input {
   margin-top: 10px;
-  min-height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: #eef2f5;
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111;
+  padding: 0 12px;
+}
+
+.compact-field {
+  margin-bottom: 18px;
 }
 
 .progress-bar {
